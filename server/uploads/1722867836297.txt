@@ -1,0 +1,31 @@
+Let some of Fibonacci series' is :
+0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987,1597,...
+ then look at the units digit of each Fibonacci number is :
+0, 1, 1, 2, 3, 5, 8, 3, 1, 4, 5, 9, 4, 3, 7, 0, 7,7,....
+when careful look this sequence it's form like
+(0 ) % 10 = 0
+(0 + 1) % 10 = 1
+(1 + 1) % 10 = 2
+(2 + 1) % 10 = 3 
+...
+...
+(5 + 8) % 10 = 3
+(8 + 3) % 10 = 1
+...
+
+which is a form like fibonacci series by adding the unit digit of (n diving each step by 10 then take remainder of each step 
+
+def FibList(n):
+ # first must to check n is in the number of constraints 
+    if n < 0:
+        return " please enter a number between 0 and 45 ! "
+ # create array for FibArr[0] = 0 and FibArr[1] = 1
+    FibArr = [0, 1]    
+    if n >= 2:
+        for i in range(2, n+1):
+       # by using append method which use to add element at the end of an already existing list or array.
+            FibArr.append((FibArr[i-1] + FibArr[i-2])%10)
+    return FibArr[n]
+ 
+
+print(FibList(100))
